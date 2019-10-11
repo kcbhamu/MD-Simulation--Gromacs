@@ -1,0 +1,81 @@
+#Results Analysis
+
+1. Concatenates several input trajectory files in sorted order
+- [ ] gmx trjcat -f step7_1.trr step7_2.trr step7_3.trr step7_4.trr step7_5.trr step7_6.trr step7_7.trr step7_8.trr step7_9.trr step7_10.trr step7_11.trr step7_12.trr step7_13.trr step7_14.trr step7_15.trr step7_16.trr -settime -o step7.trr
+*For -settime, use c option
+
+2. Convert trajectory files to smaller trajectory file for viewer
+- [ ] gmx trjconv -f step7.trr -s step6.6_equilibration.tpr -o PnuC_0NR_1us.trr -pbc cluster -dt 1000
+Choose “Protein” for cluster and “whole system” for output 
+
+Convert .trr to .pdb file for Pymol view
+- [ ] gmx trjconv -f step7.trr -s step6.6_equilibration.tpr -o PnuC_0NR_1us.pdb -pbc nojump -dt 1000 *Choose “Protein” for output
+
+3. Quality Assurance
+    Whether the protein is stable and close to the experimental structure.
+3.1 Convergence of Energy Terms
+Extraction of some thermodynamic parameters from the energy file: temperature, pressure, potential energy, kinetic energy, unite cell volume, density, and the box dimensions, etc.
+Energy analysis:
+- [ ] gmx eneconv -f step7_1.edr step7_2.edr step7_3.edr step7_4.edr step7_5.edr step7_6.edr step7_7.edr step7_8.edr step7_9.edr step7_10.edr step7_11.edr step7_12.edr step7_13.edr step7_14.edr step7_15.edr step7_16.edr  -o PnuC_0NR_1us.edr -settime
+- [ ] gmx energy -f PnuC_0NR_1us.edr -o temperature.xvg
+- [ ] xmgrace temperature.xvg
+Pressure:
+- [ ] gmx energy -f PnuC_0NR_1us.edr -o pressure.xvg *choose pressure in the list
+- [ ] xmgrace pressure.xvg
+Energy:
+- [ ] gmx energy -f PnuC_0NR_1us.edr -o energy.xvg *choose 16 “total energy” in the list
+- [ ] xmgrace  energy.xvg
+Volume:
+- [ ] gmx energy -f PnuC_0NR_1us.edr -o volume.xvg
+- [ ] xmgrace volume.xvg
+Density:
+- [ ] gmx energy -f PnuC_0NR_1us.edr -o density.xvg
+- [ ] xmgrace density.xvg
+Box:
+- [ ] gmx energy -f PnuC_0NR_1us.edr -o box.xvg
+- [ ] xmgrace box.xvg
+
+
+3.2 Minimum distances between periodic images
+gmx mindist -f step7.trr -s step6.6_equilibration.tpr -od minimal-periodic-distance.xvg -pi
+
+3.3 RMSF: Root mean square flections
+- [ ] gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -o rmsf-per-residue.xvg -ox average.pdb -res *select 
+- [ ] xmgrace rmsf-per-residue.xvg
+
+3.4 RMSD: Convergence of RMSD
+- [ ] gmx rms -f step7.trr -s step6.6_equilibration.tpr -o rmsd-all-atom-vs-start.xvg *select protein-H
+- [ ] gmx rms -f step7.trr -s step6.6_equilibration.tpr -o rmsd-all-backbone-vs-start.xvg *select only backbone atoms
+- [ ] echo 1 | gmx trjconv -f step7.trr -s step6.6_equilibration.tpr -o peptide.trr *Check the convergence towards the average structure.
+- [ ] gmx rms -f step7.trr -s average.pdb -o rmsd-all-atom-vs-average.xvg
+- [ ] gmx rms -f step7.trr -s average.pdb -o rmsd-backbone-vs-average.xvg
+- [ ] xmgrace xx.xvg
+
+3.5 Convergence of Radius of Gyration
+- [ ] gmx gyration -f step7.trr -s step6.6_equilibration.tpr -p -o radius-of-gyration.xvg
+- [ ] xmgrace radius-of-gyration.xvg
+
+4. Structural Analysis: Properties derived from configurations
+4.1 Hydrogen bonds
+- [ ] gmx hbond -f step7.trr -s step6.6_equilibration.tpr -num hydrogen-bonds-intra-protein.xvg
+- [ ] gmx hbond -f step7.trr -s step6.6_equilibration.tpr -num hydrogen-bonds-protein-other.xvg
+
+4.2 Salt Bridge
+
+4.3 Secondary Structure
+How to load DSSP:
+- [ ] module load DSSP
+- [ ] whereis dssp
+- [ ] export DSSP=/usr/local/apps/DSSP/2.2.1/bin/dssp
+- [ ] gmx do_dssp -f step7.trr -s step6.6_equilibration.tpr -ver 2 -o secondary-structure.xpm -sc secondary-structure.xvg -dt 10
+- [ ] gmx xpm2ps -f secondary-structure.xpm -o secondary-structure.eps
+- [ ] display secondary-structure.eps
+4.4 Ramachandran Plots
+- [ ] gmx rama -f step7.trr -s step6.6_equilibration.tpr -o ramachandran.xvg 
+- [ ] xmgrace ramachandran.xvg 
+
+5. Analysis of Dynamics and Time-Averaged properties 
+5.1 RMSD again
+- [ ] gmx rms -s step6.6_equilibration.tpr -f step7.trr -f2 step7.trr -m rmsd-matrix.xpm -dt 10
+- [ ] gmx xpm2ps -f rmsd-matrix.xpm -o rmsd-matrix.eps
+- [ ] display rmsd-matrix.eps
