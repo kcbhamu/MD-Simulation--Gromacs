@@ -109,7 +109,9 @@ gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -oq PnuC_0NR_1us_Bfactor.pdb
 
 module load gromacs/2018.3
 
+#Calculate using whole protein
 echo 1 | gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -oq PnuC_0NR_1us_Bfactor.pdb
 
-
+#Calculate using backbone
+echo 4 | gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -oq PnuC_0NR_1us_Bfactor.pdb
 
