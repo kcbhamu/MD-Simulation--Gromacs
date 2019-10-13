@@ -40,13 +40,17 @@ Box:
 gmx mindist -f step7.trr -s step6.6_equilibration.tpr -od minimal-periodic-distance.xvg -pi
 
 3.3 RMSF: Root mean square flections
-- [ ] gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -o rmsf-per-residue.xvg -ox average.pdb -res *select 
+- [ ] gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -o rmsf-per-residue.xvg -ox average.pdb -res
+ *select 
 - [ ] xmgrace rmsf-per-residue.xvg
 
 3.4 RMSD: Convergence of RMSD
-- [ ] gmx rms -f step7.trr -s step6.6_equilibration.tpr -o rmsd-all-atom-vs-start.xvg *select protein-H
-- [ ] gmx rms -f step7.trr -s step6.6_equilibration.tpr -o rmsd-all-backbone-vs-start.xvg *select only backbone atoms
-- [ ] echo 1 | gmx trjconv -f step7.trr -s step6.6_equilibration.tpr -o peptide.trr *Check the convergence towards the average structure.
+- [ ] gmx rms -f step7.trr -s step6.6_equilibration.tpr -o rmsd-all-atom-vs-start.xvg
+ *select protein-H
+- [ ] gmx rms -f step7.trr -s step6.6_equilibration.tpr -o rmsd-all-backbone-vs-start.xvg
+ *select only backbone atoms
+- [ ] echo 1 | gmx trjconv -f step7.trr -s step6.6_equilibration.tpr -o peptide.trr
+ *Check the convergence towards the average structure.
 - [ ] gmx rms -f step7.trr -s average.pdb -o rmsd-all-atom-vs-average.xvg
 - [ ] gmx rms -f step7.trr -s average.pdb -o rmsd-backbone-vs-average.xvg
 - [ ] xmgrace xx.xvg
@@ -79,3 +83,33 @@ How to load DSSP:
 - [ ] gmx rms -s step6.6_equilibration.tpr -f step7.trr -f2 step7.trr -m rmsd-matrix.xpm -dt 10
 - [ ] gmx xpm2ps -f rmsd-matrix.xpm -o rmsd-matrix.eps
 - [ ] display rmsd-matrix.eps
+
+5.2 How to generate a color coded RMSF using PyMol?
+Action->Presets->B-Factor Putty
+
+#Assign color by B-factor
+B-factor coloring can be done with the spectrum command. Example:
+
+spectrum b, blue_white_red, minimum=20, maximum=50
+as cartoon
+cartoon putty
+
+#Generate .pdb file by Gromacs
+
+gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -oq PnuC_0NR_1us_Bfactor.pdb
+
+#Biowulf sbatch jobscript
+
+
+#!/bin/bash
+
+#rmsf2Bfactor.jobscript
+
+#This script is to submit a sbatch job on Biowulf to calculate and generate a .pdb file with Bfactor inserted.
+
+module load gromacs/2018.3
+
+echo 1 | gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -oq PnuC_0NR_1us_Bfactor.pdb
+
+
+
