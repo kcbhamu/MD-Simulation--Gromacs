@@ -115,3 +115,39 @@ echo 1 | gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -oq PnuC_0NR_1us_Bfa
 #Calculate using backbone
 echo 4 | gmx rmsf -f step7.trr -s step6.6_equilibration.tpr -oq PnuC_0NR_1us_Bfactor.pdb
 
+5.3 Principal Components Analysis (PCA)
+
+#Reference: 
+#https://www3.mpibpc.mpg.de/groups/de_groot/compbio1/p4/index.html
+#http://scc.acad.bg/ncsa/downloads/programs/GROMACS/GROMACS%204.5%20Tutorial.pdf
+#http://thegrantlab.org/bio3d/tutorials/principal-component-analysis
+
+#calculates and diagonalizes the (mass-weighted) covariance matrix
+#Select group “4” (Protein backbone) both for fit and analysis.
+gmx covar -f step7.trr -s step6.6_equilibration.tpr -o eigenval.xvg –v eigenvect.trr –xpma covara.xpm
+
+#Use xpm2ps to make a pretty plot of the atomic covariance matrix.
+gmx xpm2ps -f covara.xpm -o covara.eps -do covara.m2p
+
+#Use ghostview (or Photoshop) to view the plot (gv covara.eps).
+gv covara.eps
+
+#To view the most dominant mode (1), use the following command ...
+gmx anaeig -v eigenvect.trr -f step7.trr -s step6.6_equilibration.tpr -first 1 -last 1 -nframes 100 -extr fws-ev1.pdb
+
+5.4 Energy landscape
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
