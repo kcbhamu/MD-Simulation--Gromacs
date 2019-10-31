@@ -84,3 +84,7 @@ comm_mode               = linear
 comm_grps               = PROT   MEMB   SOL_ION
 ;
 refcoord_scaling        = com
+
+#Run on Biowulf GPU node:
+
+sbatch --partition=gpu --cpus-per-task=56 --gres=gpu:k80:4 Production3.jobscript
