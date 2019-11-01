@@ -58,6 +58,9 @@ gmx mindist -f step7.trr -s step6.6_equilibration.tpr -od minimal-periodic-dista
 - [ ] gmx rms -f step7.trr -s average.pdb -o rmsd-all-atom-vs-average.xvg
 - [ ] gmx rms -f step7.trr -s average.pdb -o rmsd-backbone-vs-average.xvg
 - [ ] xmgrace xx.xvg
+## Convert .xvg file to .png, for show and publication?
+
+- [ ] xmgrace -nxy rmsd-all-backbone-vs-start.xvg -hdevice PNG -hardcopy -printfile rmsd-all-backbone-vs-start.png
 
 3.5 Convergence of Radius of Gyration
 - [ ] gmx gyration -f step7.trr -s step6.6_equilibration.tpr -p -o radius-of-gyration.xvg
