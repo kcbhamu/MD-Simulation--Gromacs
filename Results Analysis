@@ -13,7 +13,8 @@ gmx check -f step7_1.trr
 Choose “Protein” for cluster and “whole system” for output 
 
 Convert .trr to .pdb file for Pymol view
-- [ ] gmx trjconv -f step7.trr -s step6.0_minimization.tpr -o PnuC_0NR_1us.pdb -pbc nojump -dt 1000 *Choose “Protein” for output
+- [ ] gmx trjconv -f step7.trr -s step6.0_minimization.tpr -o PnuC_0NR_1us.pdb -pbc nojump -dt 1000
+*Choose “Protein” for output
 
 3. Quality Assurance
     Whether the protein is stable and close to the experimental structure.
