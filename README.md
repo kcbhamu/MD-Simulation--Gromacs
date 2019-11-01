@@ -1,2 +1,2 @@
 # Gromacs-MD
-Gromacs MD Run from CHARMM-Gui and Results Analysis
+Gromacs MD: How to run from CHARMM-Gui, and following Results Analysis
