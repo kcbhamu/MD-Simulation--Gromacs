@@ -42,7 +42,18 @@ Production
 - [ ] gmx grompp -f step7_production.mdp -o step7_3.tpr -c step7_2.gro -t step7_2.cpt -n index.ndx -p topol.top
 - [ ] gmx mdrun -v -deffnm step7_3
 
-Production.mdp
+#How to continue run after unexpected interruption:
+
+#!/bin/bash
+
+#Production
+
+module load gromacs/2018
+
+gmx mdrun -v -deffnm step7_17 -cpi step7_17_prev.cpt -append
+
+
+#Production.mdp
 
 integrator              = md
 dt                      = 0.002
