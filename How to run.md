@@ -1,6 +1,6 @@
-#How to start from the systems built by CHARMM-Gui 
+# How to start from the systems built by CHARMM-Gui 
 
-Minimization:
+# Minimization:
 
 - [ ] #!/bin/bash
 - [ ] module load gromacs/2018.3
@@ -26,7 +26,7 @@ Minimization:
 - [ ] gmx grompp -f step6.6_equilibration.mdp -o step6.6_equilibration.tpr -c step6.5_equilibration.gro -r step5_charm$
 - [ ] gmx mdrun -v -deffnm step6.6_equilibration
 
-Production
+# Production
 - [ ] #!/bin/bash
 
 - [ ] #Production
@@ -42,7 +42,7 @@ Production
 - [ ] gmx grompp -f step7_production.mdp -o step7_3.tpr -c step7_2.gro -t step7_2.cpt -n index.ndx -p topol.top
 - [ ] gmx mdrun -v -deffnm step7_3
 
-#How to continue run after unexpected interruption:
+# How to continue run after unexpected interruption:
 
 #!/bin/bash
 
@@ -96,6 +96,6 @@ comm_grps               = PROT   MEMB   SOL_ION
 ;
 refcoord_scaling        = com
 
-#Run on Biowulf GPU node:
+# Run on Biowulf GPU node:
 
 sbatch --partition=gpu --cpus-per-task=56 --gres=gpu:k80:4 Production3.jobscript
