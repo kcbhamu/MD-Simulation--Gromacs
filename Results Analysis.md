@@ -17,7 +17,7 @@ gmx check -f step7_1.trr
 #How to load vmd on my Linux and view the trajectory file
 
 - [ ] cd /home/dout2/Application/vmd_bin
-- [ ] vmd
+- [ ] ./vmd
 
 Convert .trr to .pdb file for Pymol view
 - [ ] gmx trjconv -f step7.trr -s step6.0_minimization.tpr -o PnuC_0NR_1us.pdb -pbc nojump -dt 1000
