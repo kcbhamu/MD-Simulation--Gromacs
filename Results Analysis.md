@@ -96,10 +96,10 @@ How to load DSSP:
 - [ ] display rmsd-matrix.eps
 
 5.2 How to generate a color coded RMSF using PyMol?
-Action->Presets->B-Factor Putty
+- [ ] Action->Presets->B-Factor Putty
 
 #Assign color by B-factor
-B-factor coloring can be done with the spectrum command. Example:
+- [ ] B-factor coloring can be done with the spectrum command. Example:
 
 spectrum b, blue_white_red, minimum=20, maximum=50
 as cartoon
@@ -107,7 +107,7 @@ cartoon putty
 
 #Generate .pdb file by Gromacs
 
-gmx rmsf -f step7.trr -s step6.0_minimization.tpr -oq PnuC_0NR_1us_Bfactor.pdb
+- [ ] mx rmsf -f step7.trr -s step6.0_minimization.tpr -oq PnuC_0NR_1us_Bfactor.pdb
 
 #Biowulf sbatch jobscript
 
@@ -135,16 +135,16 @@ echo 4 | gmx rmsf -f step7.trr -s step6.0_minimization.tpr -oq PnuC_0NR_1us_Bfac
 
 #calculates and diagonalizes the (mass-weighted) covariance matrix
 #Select group “4” (Protein backbone) both for fit and analysis.
-gmx covar -f step7.trr -s step6.0_minimization.tpr -o eigenval.xvg –v eigenvect.trr –xpma covara.xpm
+- [ ] gmx covar -f step7.trr -s step6.0_minimization.tpr -o eigenval.xvg –v eigenvect.trr –xpma covara.xpm
 
 #Use xpm2ps to make a pretty plot of the atomic covariance matrix.
-gmx xpm2ps -f covara.xpm -o covara.eps -do covara.m2p
+- [ ] gmx xpm2ps -f covara.xpm -o covara.eps -do covara.m2p
 
 #Use ghostview (or Photoshop) to view the plot (gv covara.eps).
-gv covara.eps
+- [ ] gv covara.eps
 
 #To view the most dominant mode (1), use the following command ...
-gmx anaeig -v eigenvect.trr -f step7.trr -s step6.0_minimization.tpr -first 1 -last 1 -nframes 100 -extr fws-ev1.pdb
+- [ ] gmx anaeig -v eigenvect.trr -f step7.trr -s step6.0_minimization.tpr -first 1 -last 1 -nframes 100 -extr fws-ev1.pdb
 
 5.4 Energy landscape
 
