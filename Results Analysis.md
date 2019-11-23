@@ -1,14 +1,14 @@
-#Results Analysis
+# Results Analysis
 
-0. Check the results you get
+# 0. Check the results you get
 
 gmx check -f step7_1.trr
 
-1. Concatenates several input trajectory files in sorted order
+# 1. Concatenates several input trajectory files in sorted order
 - [ ] gmx trjcat -f step7_1.trr step7_2.trr step7_3.trr step7_4.trr step7_5.trr step7_6.trr step7_7.trr step7_8.trr step7_9.trr step7_10.trr step7_11.trr step7_12.trr step7_13.trr step7_14.trr step7_15.trr step7_16.trr -settime -o step7.trr
 *For -settime, use c option
 
-2. Convert trajectory files to smaller trajectory file for viewer
+# 2. Convert trajectory files to smaller trajectory file for viewer
 - [ ] gmx trjconv -f step7.trr -s step6.0_minimization.tpr -o PnuC_0NR_1us.trr -pbc cluster -dt 1000
 Choose “Protein” for cluster and “whole system” for output 
 
@@ -16,7 +16,7 @@ Convert .trr to .pdb file for Pymol view
 - [ ] gmx trjconv -f step7.trr -s step6.0_minimization.tpr -o PnuC_0NR_1us.pdb -pbc nojump -dt 1000
 *Choose “Protein” for output
 
-3. Quality Assurance
+# 3. Quality Assurance
     Whether the protein is stable and close to the experimental structure.
 3.1 Convergence of Energy Terms
 Extraction of some thermodynamic parameters from the energy file: temperature, pressure, potential energy, kinetic energy, unite cell volume, density, and the box dimensions, etc.
@@ -67,7 +67,7 @@ gmx mindist -f step7.trr -s step6.0_minimization.tpr -od minimal-periodic-distan
 - [ ] gmx gyration -f step7.trr -s step6.0_minimization.tpr -p -o radius-of-gyration.xvg
 - [ ] xmgrace radius-of-gyration.xvg
 
-4. Structural Analysis: Properties derived from configurations
+# 4. Structural Analysis: Properties derived from configurations
 4.1 Hydrogen bonds
 - [ ] gmx hbond -f step7.trr -s step6.0_minimization.tpr -num hydrogen-bonds-intra-protein.xvg
 - [ ] gmx hbond -f step7.trr -s step6.0_minimization.tpr -num hydrogen-bonds-protein-other.xvg
@@ -86,7 +86,7 @@ How to load DSSP:
 - [ ] gmx rama -f step7.trr -s step6.0_minimization.tpr -o ramachandran.xvg 
 - [ ] xmgrace ramachandran.xvg 
 
-5. Analysis of Dynamics and Time-Averaged properties 
+# 5. Analysis of Dynamics and Time-Averaged properties 
 5.1 RMSD again
 - [ ] gmx rms -s step6.0_minimization.tpr -f step7.trr -f2 step7.trr -m rmsd-matrix.xpm -dt 10
 - [ ] gmx xpm2ps -f rmsd-matrix.xpm -o rmsd-matrix.eps
