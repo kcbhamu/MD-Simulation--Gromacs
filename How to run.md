@@ -27,6 +27,7 @@
 - [ ] gmx mdrun -v -deffnm step6.6_equilibration
 
 # Production
+
 - [ ] #!/bin/bash
 
 - [ ] #Production
@@ -98,4 +99,4 @@ refcoord_scaling        = com
 
 # Run on Biowulf GPU node:
 
-sbatch --partition=gpu --cpus-per-task=56 --gres=gpu:k80:4 Production3.jobscript
+- [ ] sbatch --partition=gpu --cpus-per-task=56 --gres=gpu:k80:4 Production3.jobscript
