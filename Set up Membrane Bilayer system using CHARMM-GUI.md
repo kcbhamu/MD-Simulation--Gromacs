@@ -31,7 +31,27 @@
 - POPE: 143 139  Upperleaflet	Lowerleaflet 
 - POPG: 48 46  Upperleaflet	Lowerleaflet 
 
+#Results:
+- Box Type	Rectangle
+- Crystal Type	TETRAGONAL
+- System Size	
 
+A	120.581738	Dimension along the A (X) axis
+B	120.581738	Dimension along the B (Y) axis
+C	104.427824	Dimension along the C (Z) axis
+
+-Crystal Angle	
+
+Alpha	90.0	Angle between the axis B and C
+Beta	90.0	Angle between the axis A and C
+Gamma	90.0	Angle between the axis A and B
+
+#of Lipids	
+
+on Top	191
+on Bottom	185
+Z Center	
+-2.77291175	 	Center of the system along the Z axis
 
 
 
