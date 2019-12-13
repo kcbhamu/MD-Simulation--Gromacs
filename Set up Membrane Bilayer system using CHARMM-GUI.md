@@ -23,18 +23,18 @@
 
 #System Size Determination Options:
 - [ ] Heterogeneous Lipid
-- [ ] 1. Box Type: Rectangular 
-- [ ] POPE: 143 139  Upperleaflet	Lowerleaflet (You may optimize the number of lipids a little bit to remove any errors)
-- [ ] POPG: 48 46
-- [ ] System dimension (XY): 120.58 120.58
-
-- { } 
-- ( )
--
+- [ ] 1. Box Type: Rectangular
+- [ ] 2. Length of Z based on: Water thickness  (Minimum water height on top and bottom of the system)
+- [ ] 3. Length of XY based on: Ratios of lipid components, POPE:POPG = 3:1 
+- Further optimize by check Numbers of lipid components, and change numbers of lipids to eliminate any errors
+- POPE: 143 139  Upperleaflet	Lowerleaflet 
+- POPG: 48 46  Upperleaflet	Lowerleaflet 
 
 
 
-Build Components
+
+
+
 
 
 
