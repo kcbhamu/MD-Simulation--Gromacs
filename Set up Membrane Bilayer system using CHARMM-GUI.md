@@ -4,13 +4,14 @@
 - [ ] Input Generator
 - [ ] Membrane Builder
 - [ ] Bilayer Builder
+- [ ] Protein/Membrane system
 
-# PDB Info
+# Step 00 - PDB Info
 - [ ] Download 4QTN from OPM database
 
 # Step 01 - Select Model/Chain, Manipulate PDB, Generate PDB and Orient Molecule
 
-- [ ] Select Chain A, B, and C, with residue ID 2-236. 
+- [ ] Select Chain A, B, and C, with residue ID 2-236. #Also add NNR if to make PnuC_3NR system.
 - [ ] Use the PDB orientation.
 
 
