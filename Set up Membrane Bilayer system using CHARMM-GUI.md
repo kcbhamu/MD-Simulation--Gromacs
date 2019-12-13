@@ -54,8 +54,16 @@ Z Center
 -2.77291175	 	Center of the system along the Z axis
 
 
+# Step 03 - Build Components
 
+- [ ] System Building Options:
 
+- Replacement method	Build system using replacement method Check lipid ring (and protein surface) penetration
 
+- [ ] Component Building Options:
+
+- Include Ions : 0.15  M  NaCl (ion concentration) 
+
+- Ion Placing Method: Monte-Carlo 
 
 
