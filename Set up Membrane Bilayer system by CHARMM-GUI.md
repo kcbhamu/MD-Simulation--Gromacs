@@ -18,7 +18,10 @@
 
 # Step 02 - Calculate Cross-Sectional Area
 
-
+#System Size Determination Options:
+- [ ] POPE: 143 139  Upperleaflet	Lowerleaflet
+- [ ] POPG: 48 46
+- [ ] System dimension (XY): 120.58 120.58
 
 
 Build Components
