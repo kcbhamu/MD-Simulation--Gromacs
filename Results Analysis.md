@@ -1,8 +1,8 @@
 # Results Analysis
 
 # 0. Check the results you get
-
-gmx check -f step7_1.trr
+- [ ] module load gromacs/2018.3
+- [ ] gmx check -f step7_1.trr
 
 # 1. Concatenates several input trajectory files in sorted order
 - [ ] gmx trjcat -f step7_1.trr step7_2.trr step7_3.trr step7_4.trr step7_5.trr step7_6.trr step7_7.trr step7_8.trr step7_9.trr step7_10.trr step7_11.trr step7_12.trr step7_13.trr step7_14.trr step7_15.trr step7_16.trr step7_17.trr step7_18.trr -settime -o step7.trr
