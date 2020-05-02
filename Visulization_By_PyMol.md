@@ -7,7 +7,7 @@ show stick, resn LIG
 set sphere_scale, 0.3
 label resin LIG, name
 ```
-Or in this way
+Or in this way: 
 ```
 bg_color white
 select lig, segid HETA
