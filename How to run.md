@@ -62,8 +62,8 @@ module load gromacs/2018
 gmx mdrun -v -deffnm step7_17 -cpi step7_17_prev.cpt -append
 
 
-#Production.mdp
-
+# Production.mdp
+```
 integrator              = md
 dt                      = 0.002
 nsteps                  = 170000000
@@ -104,7 +104,7 @@ comm_mode               = linear
 comm_grps               = PROT   MEMB   SOL_ION
 ;
 refcoord_scaling        = com
-
+```
 # Run on Biowulf GPU node:
 
 - [ ] sbatch --partition=gpu --cpus-per-task=56 --gres=gpu:k80:4 Production3.jobscript
