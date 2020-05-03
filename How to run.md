@@ -66,11 +66,11 @@ gmx mdrun -v -deffnm step7_17 -cpi step7_17_prev.cpt -append
 ```
 integrator              = md
 dt                      = 0.002
-nsteps                  = 170000000
+nsteps                  = 1000000000
 nstlog                  = 10000
-nstxout                 = 50000
-nstvout                 = 50000
-nstfout                 = 50000
+nstxout                 = 100000
+nstvout                 = 100000
+nstfout                 = 100000
 nstcalcenergy           = 100
 nstenergy               = 1000
 ;
@@ -87,7 +87,7 @@ rvdw                    = 1.2
 tcoupl                  = Nose-Hoover
 tc_grps                 = PROT   MEMB   SOL_ION
 tau_t                   = 1.0    1.0    1.0
-ref_t                   = 303.15 303.15 303.15
+ref_t                   = 310 310 310
 ;
 pcoupl                  = Parrinello-Rahman
 pcoupltype              = semiisotropic
@@ -104,6 +104,7 @@ comm_mode               = linear
 comm_grps               = PROT   MEMB   SOL_ION
 ;
 refcoord_scaling        = com
+
 ```
 # Run on Biowulf GPU node:
 
