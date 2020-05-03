@@ -1,7 +1,7 @@
 # How to start from the systems built by CHARMM-Gui 
 
-# Minimization:
-
+# Minimization.jobscript:
+```
 #!/bin/bash
 
 module load gromacs/2018.3
@@ -33,26 +33,26 @@ gmx mdrun -v -deffnm step6.5_equilibration
 gmx grompp -f step6.6_equilibration.mdp -o step6.6_equilibration.tpr -c step6.5_equilibration.gro -r step5_charmm2gmx.pdb -n index.ndx -p topol.top
 
 gmx mdrun -v -deffnm step6.6_equilibration
+```
+# Production.jobscript
+```
+#!/bin/bash
 
-# Production
+#Production
 
-- [ ] #!/bin/bash
+module load gromacs/2018.3
 
-- [ ] #Production
+gmx grompp -f step7_production.mdp -o step7_1.tpr -c step6.6_equilibration.gro -n index.ndx -p topol.top
+gmx mdrun -v -deffnm step7_1
 
-- [ ] module load gromacs/2018.3
+gmx grompp -f step7_production.mdp -o step7_2.tpr -c step7_1.gro -t step7_1.cpt -n index.ndx -p topol.top
+gmx mdrun -v -deffnm step7_2
 
-- [ ] gmx grompp -f step7_production.mdp -o step7_1.tpr -c step6.6_equilibration.gro -n index.ndx -p topol.top
-- [ ] gmx mdrun -v -deffnm step7_1
-
-- [ ] gmx grompp -f step7_production.mdp -o step7_2.tpr -c step7_1.gro -t step7_1.cpt -n index.ndx -p topol.top
-- [ ] gmx mdrun -v -deffnm step7_2
-
-- [ ] gmx grompp -f step7_production.mdp -o step7_3.tpr -c step7_2.gro -t step7_2.cpt -n index.ndx -p topol.top
-- [ ] gmx mdrun -v -deffnm step7_3
-
+gmx grompp -f step7_production.mdp -o step7_3.tpr -c step7_2.gro -t step7_2.cpt -n index.ndx -p topol.top
+gmx mdrun -v -deffnm step7_3
+```
 # How to continue run after unexpected interruption:
-
+```
 #!/bin/bash
 
 #Production
@@ -60,7 +60,7 @@ gmx mdrun -v -deffnm step6.6_equilibration
 module load gromacs/2018
 
 gmx mdrun -v -deffnm step7_17 -cpi step7_17_prev.cpt -append
-
+```
 
 # Production.mdp
 ```
