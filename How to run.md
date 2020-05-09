@@ -220,3 +220,31 @@ while ( ${cnt} <= ${cntmax} )
 end
 
 ```
+
+```
+
+#!/bin/csh
+
+# Load Gromacs on Biowulf
+module load gromacs/2018.3
+
+# Production
+#set cnt    = 1
+#set cntmax = 10
+
+#while ( ${cnt} <= ${cntmax} )
+#    if ( ${cnt} == 1 ) then
+#        gmx grompp -f step7_production.mdp -o step7_${cnt}.tpr -c step6.6_equilibration.gro -p topol.top
+#        gmx mdrun -v -deffnm step7_${cnt}
+#    else
+#        @ pcnt = ${cnt} - 1
+#        gmx grompp -f step7_production.mdp -o step7_${cnt}.tpr -c step7_${pcnt}.gro -t step7_${pcnt}.cpt -p topol.top
+#        gmx mdrun -v -deffnm step7_${cnt}
+#    endif
+#    @ cnt += 1
+#end
+
+gmx grompp -f step7_production.mdp -o step7_1.tpr -c step6.6_equilibration.gro -p topol.top
+gmx mdrun -v -deffnm step7_1  
+
+```
