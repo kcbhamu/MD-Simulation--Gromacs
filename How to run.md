@@ -1,7 +1,7 @@
 # How to start from the systems built by CHARMM-Gui 
 
 # Minimization.jobscript:
-```
+```sh
 #!/bin/bash
 
 module load gromacs/2018.3
@@ -35,7 +35,7 @@ gmx grompp -f step6.6_equilibration.mdp -o step6.6_equilibration.tpr -c step6.5_
 gmx mdrun -v -deffnm step6.6_equilibration
 ```
 # Production.jobscript
-```
+```sh
 #!/bin/bash
 
 #Production
@@ -52,7 +52,7 @@ gmx grompp -f step7_production.mdp -o step7_3.tpr -c step7_2.gro -t step7_2.cpt 
 gmx mdrun -v -deffnm step7_3
 ```
 # How to continue run after unexpected interruption:
-```
+```sh
 #!/bin/bash
 
 #Production
@@ -63,7 +63,7 @@ gmx mdrun -v -deffnm step7_17 -cpi step7_17_prev.cpt -append
 ```
 
 # Production.mdp
-```
+```sh
 integrator              = md
 dt                      = 0.002
 nsteps                  = 1000000000
@@ -112,7 +112,7 @@ refcoord_scaling        = com
 - [ ] sbatch --partition=gpu --cpus-per-task=112 --gres=gpu:v100x:4 Production.jobscript
 
 # CHARMM-GUI generated README file
-```
+```sh
 #!/bin/csh
 #
 
@@ -170,7 +170,7 @@ end
 
 # Simplified script
 ## Minimization.jobscript
-```
+```sh
 #!/bin/csh
 
 # Load Gromacs on Biowulf
@@ -198,7 +198,7 @@ end
 
 ```
 ## Production.jobscript
-```
+```sh
 #!/bin/csh
 
 # Load Gromacs on Biowulf
@@ -222,7 +222,7 @@ end
 
 ```
 
-```
+```sh
 
 #!/bin/csh
 
