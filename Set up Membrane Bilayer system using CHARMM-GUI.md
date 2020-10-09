@@ -14,6 +14,7 @@
 - [ ] Select Chain A, B, and C, with residue ID 2-236. #Also add NNR if to make PnuC_3NR system.
 - [ ] Use the PDB orientation.
 
+* If NNR cannot be recognized by the system, that means atom numbering system is not the same as PDB record. You may need to download NNR from RCSB PDB and insert/replace the one in your own model. 
 
 - [ ] http://www.charmm-gui.org/?doc=input/membrane.bilayer&jobid=7604300295&project=membrane_bilayer
 - [ ] http://www.charmm-gui.org/?doc=input/membrane.bilayer&jobid=7609535893&project=membrane_bilayer
