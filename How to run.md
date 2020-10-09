@@ -197,6 +197,17 @@ while ( ${cnt} <= ${cntmax} )
 end
 
 ```
+
+### How to run:
+
+```sh
+#Login to Biowulf
+
+sinteractive --cpus-per-task=16 --mem-per-cpu=2g --gres=lscratch:200 --time=36:00:00
+csh Minimization.sh
+
+```
+
 ## Production.jobscript
 ```sh
 #!/bin/csh
