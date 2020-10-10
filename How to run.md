@@ -62,7 +62,7 @@ module load gromacs/2018
 gmx mdrun -v -deffnm step7_17 -cpi step7_17_prev.cpt -append
 ```
 
-# Production.mdp
+# Step7_Production.mdp
 ```sh
 integrator              = md
 dt                      = 0.002
