@@ -1,6 +1,6 @@
 ### How to replace line in pdb file with pattern: 
 
 ```sh
-sed 's/Polish\/job154/\/data\/dout2\/20200304Krios_PnuC_3NR_Nanodisc\/job154/' join_particles.star
+sed 's/ X / A /' PnuC_3NR_500ns_Frame000.pdb
 
 ```
