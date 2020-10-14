@@ -21,7 +21,7 @@ awk '{
 if ($2 <=3822) sub(/ X /," A ");
 else if ($2 > 3822 && $2 <= 7644) sub(/ X /," B ");
 else if ($2 > 7644 && $2 <= 11490) sub(/ X /," C ");
-}1' PnuC_3NR_500ns_Frame000test.pdb 
+}1' PnuC_3NR_500ns_Frame000.pdb > PnuC_3NR_500ns_Frame000ID.pdb
 
  ```
  
