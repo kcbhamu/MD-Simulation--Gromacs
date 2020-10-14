@@ -38,3 +38,42 @@ resn=$6;
 }1' PnuC_3NR_500ns_Frame000test.pdb 
 
  ```
+ 
+ 
+```sh
+resn=0;
+awk '{
+resn=$6;
+print resn;
+}' PnuC_3NR_500ns_Frame000test.pdb 
+echo $resn;
+ ```
+
+### Using script
+
+```sh
+#!/bin/bash
+filename=$1;
+n=0;
+while read line; do
+awk '{
+if ($6 > $n) sub(/ X /," A ");
+} $line
+done < $filename
+```
+
+- How to run
+
+```sh
+bash ChangeChainID.sh PnuC_3NR_500ns_Frame000test.pdb
+```
+
+```sh
+#!/bin/bash
+
+while IFS='=' read -r col1 col2
+do 
+    echo "$col1"
+    echo "$col2"
+done < PnuC_3NR_500ns_Frame000test.pdb
+``` 
