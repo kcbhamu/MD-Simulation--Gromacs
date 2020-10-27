@@ -24,7 +24,7 @@ gmx mdrun -deffnm step7_production -rdd 1.4
 # Load Gromacs on Biowulf
 module load gromacs/2018.3
 
-gmx mdrun -v -deffnm step7_1 -cpi step7_1_prev.cpt -rdd 1.4 -append
+gmx mdrun -v -deffnm step7_production -cpi step7_production_prev.cpt -rdd 1.4 -append
 
 
 ```
