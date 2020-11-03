@@ -18,7 +18,7 @@ Convert .trr to .pdb file for Pymol view
 
 # How to view CG simulationr results using VMD: 
 
-* Reference/From: http://md.chem.rug.nl/index.php/tools2/visualization
+*Reference/From: http://md.chem.rug.nl/index.php/tools2/visualization
 
 Visualization
 
