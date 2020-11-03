@@ -89,6 +89,8 @@ vmd > cg_delete_elastic_bonds
 
 ## Whereis gmx
 ```sh
+#In Biowulf
+ml gromacs/2018.3
 gmx: /usr/local/apps/gromacs/2018.3/bin/gmx
 ```
 
