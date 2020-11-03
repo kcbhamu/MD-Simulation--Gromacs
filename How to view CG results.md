@@ -74,19 +74,26 @@ Not really an issue but: cg_bonds draws ALL bonds/constraints of the system; wha
 Tcl needs an empty line at the end of the files it reads (.top and .itp)!
 On the same level, Tcl seems to understand differently the simple and double quotes... Please check that before shouting.
 Script doesn't extract (yet!) harmonic bonds of "regular" elastic networks built with the martinize.py script for instance (elastic bonds defined as type 6; this comment is not valid for ElNeDyn, which defines elastic bonds as type 1).Fixed!
-Example
+
+
+# Example
+
+```sh
 user@machine $ vmd protein.gro
 vmd > source /home/user/scripts/cg_bonds.tcl
 vmd > cg_bonds -top system.top -topoltype "elastic"
 vmd > cg_bonds -gmx /home/user/bin/gmx-4.5.4/bin/gmxdump -tpr dyn.tpr -net "elastic" -cutoff 12.0 -color "orange" -mat "AOChalky" -res 12 -rad 0.1 -topoltype "elastic"
 vmd > cg_delete_elastic_bonds
-The few lines above will:
+```
 
+The few lines above will:
+```sh
 load the protein.gro structure,
 source the cg_bonds.tcl script,
 draw the martini bonds (using the .top file specified in the command line) extracted from a .top containingelastic network bonds,
 draw the elastic network with the options (cutoff, color, material, resolution and radius) specified by extracting the bonds from the .tpr file,
 delete the elastic network bonds previously drawn.
+```
 All these line will be applied to the molecule with the VMD-defined ID 0 (or "top").
 
 For feedback or problems contact c.arnarez@rug.nl or post to the platform.
@@ -95,17 +102,19 @@ Rendering CG helices & sheets with VMD
 Last Updated: Thursday, 12 June 2014 15:31
 We gathered and extended the set of small Tcl scripts available in our group to draw protein secondary structure in VMD-like fashion.
 
-The script can be found here: cg_secondary_structure.tcl
+# The script can be found here: cg_secondary_structure.tcl
 
-Usage
+## Usage
+
 After sourcing the script in VMD (source /path/to/cg_secondary_structure.tcl), two routines are available from the command line: cg_helix and cg_sheet. The options and default values are listed below. You can summon an "how to" at any moment by calling the cg_secondary_structure_usage command.
 
 This script needs the La package, a linear algebra package written by Hume Integration Software, used here to compute principal axes of helices/sheets; the package is freely available at http://www.hume.com/la/. After downloading it, extract and source the la.tcl file in VMD.
 
 You can give an output of do_dssp as an input for this script; it will be parsed and this script will try to draw each helix/sheet. If you use this option (-ssdump), you can leave the first list empty (see examples).
 
-cg_helix
-Usage:
+# cg_helix
+
+## Usage:
 
 vmd > cg_helix {{start1 end1} {start2 end2} ...} [OPTIONS]
 Where start and end are respectively the first and last residues composing an helix; you can provide more than one helix, as shown in the command line. The "{" and "}" characters are mandatory for Tcl to understand it as a list!
@@ -132,11 +141,15 @@ Options and default values:
 -hlxdirclen	0.3	length of the cone (showing direction of the director)
 -hlxdircrad	0.2	cone radius
 -hlxsecbprop	0.5	proportion of the preceding/following bond used as length for starting/ending flat cones
-Example:
 
+Example:
+```sh
 vmd > cg_helix {{5 48} {120 146}} -hlxmethod "cylinder" -hlxcolor "lime" -hlxrad 2.5
-cg_sheet
-Usage:
+```
+
+# cg_sheet
+
+## Usage:
 
 vmd > cg_sheet {{start1 end1} {start2 end2} ...} [OPTIONS]
 Where start and end are respectively the first and last residues composing a sheet; you can provide more than one sheet, as shown in the command line. The "{" and "}" characters are mandatory for Tcl to understand it as a list!
@@ -170,17 +183,25 @@ Options and default values:
 -shtdirclen	0.3	length of the cone (showing direction of the director)
 -shtdircrad	0.2	cone radius
 -shtsecbprop	0.5	proportion of the preceding/following bond used as length for starting/ending flat cones
-Example:
 
+Example:
+```sh
 vmd > cg_sheet {} -shtfilled "no" -ssdump protein.dat -shtarrowthick 0.4
- 
+```
 Known issues
+
 There is still a bunch of small graphical issues (thanks to drop a mail to the contact at the bottom of this page whenever you find something... unexpected); sheets are particularly ugly. It's not the priority right now, it will be fixed when we will have time... keep checking this page and your version of the script updated! We are writing this tool for personal purpose, and we didn't retroactively test all the graphical options and the result when mixing them together. Thanks to do that for us!
 
 Drawings do not follow the protein dyamic along a trajectory; you need to redraw everything at each step (no ways to change this behavior so far).
 The "bendedarrow" (sheet style), which would be the closest to VMD atomistic drawings, doesn't work so well so far. Still working on it!
 If an helix is too bended, VMD will not be able to draw it using the "idealhelix" or "realhelix" method (the script will output an error message with the termini of the helix).
+
 Not able to draw helices smaller than 3 residues (!).Fixed. Avoided.
+
 Tcl needs an empty line at the end of the files it reads!
+
 On the same level, Tcl seems to understand differently simple and double quotes... Please check that before shouting.
+
 For feedback or problems contact c.arnarez@rug.nl or post to the platform.
+
+
