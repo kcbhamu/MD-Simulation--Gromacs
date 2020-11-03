@@ -81,10 +81,25 @@ Script doesn't extract (yet!) harmonic bonds of "regular" elastic networks built
 
 ```sh
 user@machine $ vmd protein.gro
-vmd > source /home/user/scripts/cg_bonds.tcl
-vmd > cg_bonds -top system.top -topoltype "elastic"
-vmd > cg_bonds -gmx /home/user/bin/gmx-4.5.4/bin/gmxdump -tpr dyn.tpr -net "elastic" -cutoff 12.0 -color "orange" -mat "AOChalky" -res 12 -rad 0.1 -topoltype "elastic"
+vmd > source /data/dout2/scripts/cg_bonds-v5.tcl
+vmd > cg_bonds -top /data/dout2/PnuC_0NR-XY120-CG-0271125588/gromacs/system.top -topoltype "elastic"
+vmd > cg_bonds -gmx /usr/local/apps/gromacs/2018.3/bin/gmx -tpr step7_production.tpr -net "elastic" -cutoff 12.0 -color "orange" -mat "AOChalky" -res 12 -rad 0.1 -topoltype "elastic"
+
+cg_bonds -gmx /usr/local/apps/gromacs/2018.3/bin/gmx -tpr /data/dout2/PnuC_0NR-XY120-CG-0271125588/gromacs/step7_production.tpr -net "elastic" -cutoff 12.0 -color "orange" -mat "AOChalky" -res 12 -rad 0.1 -topoltype "elastic"
+
+cg_bonds -gmx /usr/local/apps/gromacs/2018.3/bin/gmx -topoltype "martini" -top /data/dout2/PnuC_0NR-XY120-CG-0271125588/gromacs/system.top -cutoff 6.2
+
 vmd > cg_delete_elastic_bonds
+```
+
+```sh
+
+   cg_bonds -tpr mini.tpr
+   cg_bonds -gmx gmx -tpr mini.tpr
+   cg_bonds -gmx /usr/local/gromacs-2016.3/bin/gmx -topoltype "martini" -top system.top -cutoff 6.2
+   cg_bonds -topoltype "elastic" -res 10 -cutoff 12.0 -mat Transparent -color 12
+   cg_dmb -molid 1
+
 ```
 
 ## Whereis gmx
@@ -93,8 +108,6 @@ vmd > cg_delete_elastic_bonds
 ml gromacs/2018.3
 gmx: /usr/local/apps/gromacs/2018.3/bin/gmx
 ```
-
-
 
 The few lines above will:
 ```sh
