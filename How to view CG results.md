@@ -87,6 +87,13 @@ vmd > cg_bonds -gmx /home/user/bin/gmx-4.5.4/bin/gmxdump -tpr dyn.tpr -net "elas
 vmd > cg_delete_elastic_bonds
 ```
 
+## Whereis gmx
+```sh
+gmx: /usr/local/apps/gromacs/2018.3/bin/gmx
+```
+
+
+
 The few lines above will:
 ```sh
 load the protein.gro structure,
