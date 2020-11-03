@@ -16,11 +16,16 @@ Convert .trr to .pdb file for Pymol view
 
 
 
-# How to view CG simulationr results using VMD: http://md.chem.rug.nl/index.php/tools2/visualization
+# How to view CG simulationr results using VMD: 
+
+* Reference/From: http://md.chem.rug.nl/index.php/tools2/visualization
 
 Visualization
+
 Rendering CG bonds & constraints with VMD
+
 Last Updated: Wednesday, 16 August 2017 09:24
+
 We modified and re-wrote (check this page) a small Tcl script to read and draw Martini bonds and constraints in VMD. The bonds of the elastic networks can be drawn as well. In some cases, the script needs to read the gromacs .tpr file. For this reason, there is a latest version for use with gromacs 5 (and later) .tpr files.
 
 The script for use with gromacs 5 can be found here: cg_bonds-v5.tcl.
