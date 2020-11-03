@@ -27,19 +27,23 @@ Rendering CG bonds & constraints with VMD
 
 Last Updated: Wednesday, 16 August 2017 09:24
 
+```sh
 We modified and re-wrote (check this page) a small Tcl script to read and draw Martini bonds and constraints in VMD. The bonds of the elastic networks can be drawn as well. In some cases, the script needs to read the gromacs .tpr file. For this reason, there is a latest version for use with gromacs 5 (and later) .tpr files.
 
 The script for use with gromacs 5 can be found here: cg_bonds-v5.tcl.
 
 The script can be found here: cg_bonds.tcl (previous version: cg_bonds.tcl.old).
-
+```
  
-Usage
+# Usage
 The script is invoked from the VMD command line - after sourcing it (source /path/to/cg_bonds.tcl, or /path/to/cg_bonds-v5.tcl, simply type cg_bonds (options and default values listed below). You can summon an "how to" at any moment by calling the cg_bonds_usage command.
 
 This script uses the gmxdump executable compiled with gromacs. By default, it looks for it in the /usr/bin directory; you can specify another path with a specific option (see below). The script can now parse .top and .itp files, via the -top option.
 
-cg_bonds
+# cg_bonds
+
+
+
 Options and default values (slightly different from the previous version!):
 
 -molid	"top"	VMD-defined ID of the molecule to process
@@ -58,7 +62,8 @@ In most of the cases, if a "classical" cut-off is used for the elastic network (
 
 Then you can remove Martini bonds with the cg_delete_martini_bonds; and the cylinders with the cg_delete_elastic_bonds. The only option for the previous three commands is the VMD-defined ID of the molecule to process (via -molid, default is "top").
 
-Known issues
+# Known issues
+
 Using tpr files from version 5 and higher is not possible.Script for use with version 5 and higher is now available!
 The cg_bonds_infos command is useless (and going to be removed in next versions probably). Removed!
 Bonds drawn for the elastic network don't follow the dynamic of the protein; the 12-bonds-limitation of VMD obliges to draw them using cylinders, not regular bonds. Please drop a mail if you have a solution to fix that...
