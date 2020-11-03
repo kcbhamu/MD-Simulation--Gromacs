@@ -46,18 +46,19 @@ This script uses the gmxdump executable compiled with gromacs. By default, it lo
 
 Options and default values (slightly different from the previous version!):
 
--molid	"top"	VMD-defined ID of the molecule to process
--gmx	/usr/bin/gmxdump	absolute path to gmxdump executable (for version 5, this should point to the gmx executable, default /usr/bin/gmx)
--tpr	topol.tpr	absolute path to the simulation file (.tpr)
--top	topol.top	absolute path to the system topology files (.top linking to .itp)
--topoltype	"martini"	protein topology type: "martini", "elastic" or "elnedyn"
--net	"martini"	network to draw: "martini", "elastic" or "both"
--bndrcnstr	"both"	draw bonds AND/OR constraints "bonds", "constraints" or "both"
--cutoff	7.0	cutoff for bonds (angstroms)
--color	"red"	color (color name or VMD-defined ID) of elastic bonds
--mat	"Opaque"	material for elnedyn bonds
--rad	0.2	radius of elastic bonds
--res	6	resolution of elastic bonds
+- -molid	"top"	VMD-defined ID of the molecule to process
+- -gmx	/usr/bin/gmxdump	absolute path to gmxdump executable (for version 5, this should point to the gmx executable, default /usr/bin/gmx)
+- -tpr	topol.tpr	absolute path to the simulation file (.tpr)
+- -top	topol.top	absolute path to the system topology files (.top linking to .itp)
+- -topoltype	"martini"	protein topology type: "martini", "elastic" or "elnedyn"
+- -net	"martini"	network to draw: "martini", "elastic" or "both"
+- -bndrcnstr	"both"	draw bonds AND/OR constraints "bonds", "constraints" or "both"
+- -cutoff	7.0	cutoff for bonds (angstroms)
+- -color	"red"	color (color name or VMD-defined ID) of elastic bonds
+- -mat	"Opaque"	material for elnedyn bonds
+- -rad	0.2	radius of elastic bonds
+- -res	6	resolution of elastic bonds
+
 In most of the cases, if a "classical" cut-off is used for the elastic network (0.9nm), more than 12 bonds per atom are defined and VMD refuses to draw them. BUT this script replaces bonds by cylinders, and is able to draw the entire elastic network. Note that you have to modify the default cutoff value to see all the links defined by the elastic network.
 
 Then you can remove Martini bonds with the cg_delete_martini_bonds; and the cylinders with the cg_delete_elastic_bonds. The only option for the previous three commands is the VMD-defined ID of the molecule to process (via -molid, default is "top").
