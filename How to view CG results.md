@@ -1,7 +1,22 @@
+# Convert trajectory files to smaller trajectory file for viewer
+- [ ] gmx trjconv -f step7.trr -s step6.0_minimization.tpr -o PnuC_0NR_1us.trr -pbc cluster -dt 1000
+
+*Choose “Protein” for cluster and “whole system” for output 
+
+#How to load vmd on my Linux and view the trajectory file
+
+- [ ] cd /home/dout2/Application/vmd_bin
+- [ ] ./vmd
+
+Convert .trr to .pdb file for Pymol view
+- [ ] gmx trjconv -f step7.trr -s step6.0_minimization.tpr -o PnuC_0NR_1us.pdb -pbc nojump -dt 1000
+
+*Choose “Protein” for output
 
 
 
-### Reference: http://md.chem.rug.nl/index.php/tools2/visualization
+
+# How to view CG simulationr results using VMD: http://md.chem.rug.nl/index.php/tools2/visualization
 
 Visualization
 Rendering CG bonds & constraints with VMD
