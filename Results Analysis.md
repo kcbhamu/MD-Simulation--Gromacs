@@ -10,7 +10,7 @@
 *For -settime, use c option
 
 # 2. Convert trajectory files to smaller trajectory file for viewer
-- [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000
+- [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000 -center
 
 *Choose “Protein” for cluster and “whole system” for output 
 
