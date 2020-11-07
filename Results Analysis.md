@@ -10,11 +10,76 @@
 *For -settime, use c option
 
 # 2. Convert trajectory files to smaller trajectory file for viewer
+
+## Name a new group of protein-ligand complex and create a new index file using gmx ``make_ndx`` if necessary
+### Launch gmx make_ndx
+- [ ] gmx make_ndx -f step6.6_equilibration.gro -o protein-ligand.ndx
+### Combine group 1 and 13 to get new group 18: Protein-NNR, and then q to save/export new index file "protein-ligand.ndx"
+- [ ] 
+```sh
+GROMACS:      gmx make_ndx, version 2018.3
+Executable:   /usr/local/apps/gromacs/2018.3/bin/gmx
+Data prefix:  /usr/local/apps/gromacs/2018.3
+Working dir:  /gpfs/gsfs10/users/dout2/PnuC_3NR-XY100-charmm-gui-0226106078/gromacs
+Command line:
+  gmx make_ndx -f step6.6_equilibration.gro -o protein-ligand.ndx
+
+
+Reading structure file
+Going to read 0 old index file(s)
+Analysing residue names:
+There are:   707    Protein residues
+There are: 19664      Other residues
+Analysing Protein...
+Analysing residues not classified as Protein/DNA/RNA/Water and splitting into groups...
+
+  0 System              : 96403 atoms
+  1 Protein             : 11490 atoms
+  2 Protein-H           :  5677 atoms
+  3 C-alpha             :   707 atoms
+  4 Backbone            :  2121 atoms
+  5 MainChain           :  2825 atoms
+  6 MainChain+Cb        :  3483 atoms
+  7 MainChain+H         :  3517 atoms
+  8 SideChain           :  7973 atoms
+  9 SideChain-H         :  2852 atoms
+ 10 Prot-Masses         : 11490 atoms
+ 11 non-Protein         : 84913 atoms
+ 12 Other               : 84913 atoms
+ 13 NNR                 :    99 atoms
+ 14 POPC                : 26666 atoms
+ 15 SOD                 :    52 atoms
+ 16 CLA                 :    67 atoms
+ 17 TIP3                : 58029 atoms
+
+ nr : group      '!': not  'name' nr name   'splitch' nr    Enter: list groups
+ 'a': atom       '&': and  'del' nr         'splitres' nr   'l': list residues
+ 't': atom type  '|': or   'keep' nr        'splitat' nr    'h': help
+ 'r': residue              'res' nr         'chain' char
+ "name": group             'case': case sensitive           'q': save and quit
+ 'ri': residue index
+
+> 1 | 13
+
+Copied index group 1 'Protein'
+Copied index group 13 'NNR'
+Merged two groups with OR: 11490 99 -> 11589
+
+ 18 Protein_NNR         : 11589 atoms
+
+> 
+```
+
+
+## Then, load the new index file and center the protein-ligand complex
+
+- [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -n protein-ligand.ndx -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000 -center -ur compact 
+
+## Otherwise, we can also center the protein directly
+
 - [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000 -center
 
 - [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000 -center -ur compact
-
-- [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -n protein-ligand.ndx -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000 -center -ur compact 
 
 - [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -o PnuC_3NR_500ns.trr -pbc whole -dt 1000 -center
 
