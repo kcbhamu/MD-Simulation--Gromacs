@@ -73,7 +73,12 @@ Merged two groups with OR: 11490 99 -> 11589
 
 ## 2.2 Then, load the new index file and center the protein-ligand complex
 
-- [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -n protein-ligand.ndx -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000 -center -ur compact 
+- [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -n protein-ligand.ndx -o PnuC_3NR_500ns.trr -pbc cluster -center -ur compact -dt 1000 
+
+- [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -n protein-ligand.ndx -o PnuC_3NR_500ns.trr -pbc mol -center -ur compact -dt 1000
+
+
+
 
 ## Otherwise, we can also center the protein directly
 
