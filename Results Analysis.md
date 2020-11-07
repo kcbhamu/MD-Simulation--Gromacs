@@ -11,11 +11,11 @@
 
 # 2. Convert trajectory files to smaller trajectory file for viewer
 
-## Name a new group of protein-ligand complex and create a new index file using gmx ``make_ndx`` if necessary
+## 2.1 Name a new group of protein-ligand complex and create a new index file using gmx ``make_ndx`` if necessary
 ### Launch gmx make_ndx
 - [ ] gmx make_ndx -f step6.6_equilibration.gro -o protein-ligand.ndx
 ### Combine group 1 and 13 to get new group 18: Protein-NNR, and then q to save/export new index file "protein-ligand.ndx"
-- [ ] 
+
 ```sh
 GROMACS:      gmx make_ndx, version 2018.3
 Executable:   /usr/local/apps/gromacs/2018.3/bin/gmx
@@ -71,7 +71,7 @@ Merged two groups with OR: 11490 99 -> 11589
 ```
 
 
-## Then, load the new index file and center the protein-ligand complex
+## 2.2 Then, load the new index file and center the protein-ligand complex
 
 - [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -n protein-ligand.ndx -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000 -center -ur compact 
 
