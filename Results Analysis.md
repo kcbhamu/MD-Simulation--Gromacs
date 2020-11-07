@@ -12,6 +12,8 @@
 # 2. Convert trajectory files to smaller trajectory file for viewer
 - [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -o PnuC_3NR_500ns.trr -pbc cluster -dt 1000 -center
 
+- [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -o PnuC_3NR_500ns.trr -pbc mol -dt 1000 -center
+
 *Choose “Protein” for cluster, "Protein" to center, and “whole system” for output 
 
 #How to load vmd on my Linux and view the trajectory file
