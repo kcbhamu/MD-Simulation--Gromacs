@@ -77,6 +77,7 @@ Merged two groups with OR: 11490 99 -> 11589
 
 - [ ] gmx trjconv -f step7_1.trr -s step7_1.tpr -n protein-ligand.ndx -o PnuC_3NR_500ns.trr -pbc mol -center -ur compact -dt 1000
 
+*Select group 18 "Protein_NNR" for centering, and the whole system (group 0) for output.
 
 
 
