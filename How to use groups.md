@@ -89,7 +89,8 @@ For tools that do not yet support the selection syntax, you can use gmx select -
 It is also possible to write your own analysis tools to take advantage of the flexibility of these selections: see the template.cpp file in the share/gromacs/template directory of your installation for an example.
 
 
-#### Reference: https://pythonhosted.org/fatslim/documentation/tutorials.html
+### Reference: https://pythonhosted.org/fatslim/documentation/tutorials.html
+### http://www.mdtutorials.com/gmx/complex/06_equil.html
 
 
 7.5. Tutorial #4: Extracting raw APL data for further processing
