@@ -108,8 +108,7 @@ refcoord_scaling        = com
 ```
 # Run on Biowulf GPU node:
 
-- [ ] sbatch --partition=gpu --cpus-per-task=56 --gres=gpu:v100x:4 Production.jobscript
-- [ ] sbatch --partition=gpu --cpus-per-task=112 --gres=gpu:v100x:4 Production.jobscript
+- [ ] sbatch --partition=gpu --cpus-per-task=36 --gres=gpu:v100x:2 Production.jobscript
 
 # CHARMM-GUI generated README file
 ```sh
