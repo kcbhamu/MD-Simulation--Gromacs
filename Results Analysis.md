@@ -230,6 +230,14 @@ echo 4 | gmx rmsf -f step7.trr -s step6.0_minimization.tpr -oq PnuC_0NR_1us_Bfac
 #To view the most dominant mode (1), use the following command ...
 - [ ] gmx anaeig -v eigenvect.trr -f step7.trr -s step6.0_minimization.tpr -first 1 -last 1 -nframes 100 -extr fws-ev1.pdb
 
+#How to perfomr PCA using VMD
+
+http://prody.csb.pitt.edu/tutorials/nmwiz_tutorial/pca.html
+
+https://www.ks.uiuc.edu/Research/vmd/plugins/nmwiz/
+
+
+
 5.4 Energy landscape
 
 
