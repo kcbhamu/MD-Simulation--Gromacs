@@ -104,11 +104,11 @@ Convert .trr to .pdb file for Pymol view
 *Choose “Protein” for output
 
 # 3. Quality Assurance
-    Whether the protein is stable and close to the experimental structure.
+#### Whether the protein is stable and close to the experimental structure.
 3.1 Convergence of Energy Terms
 Extraction of some thermodynamic parameters from the energy file: temperature, pressure, potential energy, kinetic energy, unite cell volume, density, and the box dimensions, etc.
 Energy analysis:
-- [ ] gmx eneconv -f step7_1.edr step7_2.edr step7_3.edr step7_4.edr step7_5.edr step7_6.edr step7_7.edr step7_8.edr step7_9.edr step7_10.edr step7_11.edr step7_12.edr step7_13.edr step7_14.edr step7_15.edr step7_16.edr  -o PnuC_0NR_1us.edr -settime
+- [ ] gmx eneconv -f step7_1.edr -o PnuC_0NR_1us.edr -settime
 - [ ] gmx energy -f PnuC_0NR_1us.edr -o temperature.xvg
 - [ ] xmgrace temperature.xvg
 Pressure:
